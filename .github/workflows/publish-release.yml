@@ -1,0 +1,42 @@
+name: Publish mod library release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged catalog
+        uses: actions/checkout@v4
+
+      - name: Verify every release checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          archives=(release-assets/*.zip)
+          test "${#archives[@]}" -gt 0
+          for archive in "${archives[@]}"; do
+            checksum="${archive}.sha256"
+            test -f "${checksum}"
+            expected="$(tr -d '\r\n ' < "${checksum}")"
+            actual="$(sha256sum "${archive}" | cut -d' ' -f1)"
+            test "${actual^^}" = "${expected^^}"
+          done
+
+      - name: Publish GitHub release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            release-assets/*.zip \
+            release-assets/*.zip.sha256 \
+            --title "OpenDereth Mods ${GITHUB_REF_NAME}" \
+            --notes-file RELEASE_NOTES.md
