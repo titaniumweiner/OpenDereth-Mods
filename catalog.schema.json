@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/titaniumweiner/OpenDereth-Mods/catalog.schema.json",
+  "title": "OpenDereth Mod Catalog",
+  "type": "object",
+  "required": ["formatVersion", "name", "repository", "releaseTag", "target", "mods"],
+  "properties": {
+    "formatVersion": { "const": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "repository": { "type": "string", "format": "uri" },
+    "releaseTag": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date" },
+    "target": {
+      "type": "object",
+      "required": ["product", "aceVersion", "framework", "packageFormat"],
+      "properties": {
+        "product": { "type": "string" },
+        "aceVersion": { "type": "string" },
+        "framework": { "type": "string" },
+        "packageFormat": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "mods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "version", "author", "description", "availability", "dataImpact", "removalPolicy", "safetyNotice", "dependencies", "conflicts", "sourceUrl", "downloadUrl", "checksumUrl", "sha256"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "version": { "type": "string", "minLength": 1 },
+          "author": { "type": "string", "minLength": 1 },
+          "description": { "type": "string", "minLength": 1 },
+          "availability": { "enum": ["ready", "preview", "experimental", "needsPort", "notRecommended"] },
+          "dataImpact": { "enum": ["none", "settingsOnly", "characterData", "worldData", "clientData"] },
+          "removalPolicy": { "enum": ["safe", "changesRemain", "backupRequired", "doNotRemove"] },
+          "safetyNotice": { "type": "string", "minLength": 1 },
+          "dependencies": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "conflicts": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "sourceUrl": { "type": "string", "format": "uri" },
+          "downloadUrl": { "type": "string", "format": "uri" },
+          "checksumUrl": { "type": "string", "format": "uri" },
+          "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
