@@ -42,7 +42,7 @@ The default configuration changes only material availability. Optional, independ
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.universal-loot-luck-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.universal-loot-luck-1.0.0-sp1.zip.sha256)
-- [Source and full settings reference](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.UniversalLootLuck)
+- [Source and full settings reference](src/UniversalLootLuck)
 
 **Removal:** Safe to disable after restart, but materials and quality already generated on saved items remain. Conflicts with Aquafir's broad `Expansion` loot framework.
 
@@ -55,7 +55,7 @@ Removes the normal shared limit of ten gems across Strength, Endurance, Coordina
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip.sha256)
-- [Source](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.UnlimitedStatAugmentation)
+- [Source](src/UnlimitedStatAugmentation)
 
 **Removal:** Turning it off restores the normal shared limit after restart. Stat increases already earned remain. Conflicts with Aquafir's broader `QualityOfLife` augmentation-limit feature.
 
@@ -68,7 +68,7 @@ Removes ACE's ceiling of 70 total credits invested in specialized skills. It doe
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip.sha256)
-- [Source](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.UnlimitedSkillSpecializations)
+- [Source](src/UnlimitedSkillSpecializations)
 
 **Removal:** Existing over-cap specializations remain until lowered normally. Conflicts with Aquafir's broader `QualityOfLife` specialization changes.
 
@@ -82,7 +82,7 @@ Stock ACE runs its equipped-item proc pass only for Aetheria. This mod also acce
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip.sha256)
-- [Port source](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.ACEUniqueWeeniesProc)
+- [Port source](src/ExpandedCastOnStrike)
 
 **Removal:** Safe for the database. Custom items remain, but their non-Aetheria equipped procs stop working after restart.
 
@@ -96,7 +96,7 @@ Provides two simple settings for physical and magic critical-hit chances against
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.critical-override-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.critical-override-1.0.0-sp1.zip.sha256)
-- [Port source](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.CriticalOverride)
+- [Port source](src/CriticalOverride)
 
 **Removal:** Safe after restart. Earlier combat results are not recalculated.
 
@@ -110,7 +110,7 @@ Allows Society armor to be used in ACE's tailoring workflow while preserving inv
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.society-tailoring-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.society-tailoring-1.0.0-sp1.zip.sha256)
-- [Port source](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.SocietyTailoring)
+- [Port source](src/SocietyTailoring)
 
 **Removal:** Turning it off stops new Society tailoring, but completed tailoring changes remain on items.
 
@@ -140,7 +140,7 @@ A deliberately small developer example that registers `/hello` and `/bye`. It is
 
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.hello-command-1.0.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.hello-command-1.0.0-sp1.zip.sha256)
-- [Port source](https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.HelloCommand)
+- [Port source](src/HelloCommand)
 
 **Removal:** Safe after restart.
 
