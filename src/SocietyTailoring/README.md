@@ -8,6 +8,6 @@ Completed tailoring changes are permanent. Turning the mod off prevents future S
 
 Original source: <https://github.com/aquafir/ACE.BaseMod/tree/master/Samples/SocietyTailoring>
 
-Modified source: <https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.SocietyTailoring>
+Modified source: <https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/SocietyTailoring>
 
 The original and modified source are licensed under the GNU Affero General Public License v3.0, the same license included with OpenDereth.

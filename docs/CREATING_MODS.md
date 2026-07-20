@@ -82,4 +82,4 @@ Custom weenies, quests, encounters, recipes, and placements are world-content pa
 
 New terrain, models, textures, icons, sounds, or buildings also require a matched client-content package and an atomic way to switch the complete DAT set. Do not present those packages as harmless server-mod checkboxes.
 
-For a working source tree and build helper, see [OpenDereth's current mod projects](https://github.com/titaniumweiner/OpenDereth/tree/main/Source) and [`scripts/package-mod.ps1`](https://github.com/titaniumweiner/OpenDereth/blob/main/scripts/package-mod.ps1).
+For working mod source, see this repository's [`src` directory](https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src). Package rebuilt mods with OpenDereth's [`scripts/package-mod.ps1`](https://github.com/titaniumweiner/OpenDereth/blob/main/scripts/package-mod.ps1) helper.

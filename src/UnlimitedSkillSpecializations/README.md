@@ -8,6 +8,6 @@ Specializations above the normal 70-credit ceiling are saved character data. Tur
 
 This package is a preview until specialization, saving, restart, and removal have been tested thoroughly in game. Back up `%LOCALAPPDATA%\OpenDereth` before testing progression-changing mods.
 
-Source: <https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.UnlimitedSkillSpecializations>
+Source: <https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/UnlimitedSkillSpecializations>
 
 This mod is distributed under the GNU Affero General Public License v3.0 included with OpenDereth.

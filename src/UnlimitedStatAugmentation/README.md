@@ -10,6 +10,6 @@ Turning the mod off restores the normal shared usage limit after a server restar
 
 This package is a preview until its complete acquisition and boundary behavior has been tested in game. Back up `%LOCALAPPDATA%\OpenDereth` before testing progression-changing mods.
 
-Source: <https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.UnlimitedStatAugmentation>
+Source: <https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/UnlimitedStatAugmentation>
 
 This mod is distributed under the GNU Affero General Public License v3.0 included with OpenDereth.

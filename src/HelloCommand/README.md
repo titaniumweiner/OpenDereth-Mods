@@ -6,6 +6,6 @@ This is a developer example rather than a substantial gameplay mod. The port is 
 
 Original source: <https://github.com/aquafir/ACE.BaseMod/tree/master/Samples/HelloCommand>
 
-Modified source: <https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.HelloCommand>
+Modified source: <https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/HelloCommand>
 
 The original and modified source are licensed under the GNU Affero General Public License v3.0, the same license included with OpenDereth.

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out tagged catalog
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Verify every release checksum
         shell: bash

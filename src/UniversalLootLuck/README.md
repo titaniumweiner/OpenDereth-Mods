@@ -26,6 +26,6 @@ Turning the mod off restores stock rolls after the server restarts. Materials an
 
 This package is a preview. It has automated tests for settings bounds, profile cloning, weighted all-tier selection, Harmony targets, multiplier math, and clean removal, but it has not been thoroughly tested across every loot table in game.
 
-Source: <https://github.com/titaniumweiner/OpenDereth/tree/main/Source/ACE.SinglePlayer.Mods.UniversalLootLuck>
+Source: <https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/UniversalLootLuck>
 
 This mod is distributed under the GNU Affero General Public License v3.0 included with OpenDereth.
