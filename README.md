@@ -42,6 +42,33 @@ The default testing profile gives 50% of eligible creatures at least one variant
 
 This is a runtime-only mod. It does not replace creature weenies or rewrite character, world, or client DAT data. Stacked variants execute together, including multiplicative Boss/Horde damage and health scaling, combined Berserker/Boss attributes, multiple on-hit effects, and independent timed abilities. Creature names display all assigned prefixes.
 
+### What each variant does
+
+These are the shipped testing defaults. Every chance, timer, range, multiplier, target limit, and safety cap listed below can be changed in `Settings.json`.
+
+| Variant | Creature-name prefix | Behavior and default values |
+|---|---|---|
+| **Accurate** | `Accurate` | Has a 25% flat chance to make each physical attack unavoidable. It affects only that attack and does not permanently lower the player's defense skill. |
+| **Berserker** | `Raging` | At 60% health or lower, gains a 1.30x runtime multiplier to all six primary attributes for the rest of that spawn. Healing above 60% does not end the rage. |
+| **Comboer** | `Frenetic` | Counts consecutive successful hits against a player. Every fifth hit deals 1.50x damage; taking damage resets the combo counter. |
+| **Drainer** | `Atrophying` or `Stultifying` | Chooses stamina or mana when it spawns, then drains that vital on successful player hits. The default drain equals 100% of damage dealt. |
+| **Duelist** | `Dueling` | Parries player damage while facing the attacker inside a 40-degree total frontal arc. Attacks from its side or rear bypass the parry. |
+| **Evader** | `Evasive` | Has a 25% flat chance to evade an incoming physical attack. This port corrects the experimental sample's reversed probability comparison. |
+| **Exploder** | `Exploding` | Starts a visible three-heartbeat countdown while its target remains within 5 units. At zero it deals health-scaled fire damage, capped at 250, to a bounded group of nearby players and then destroys itself; leaving range resets the countdown. |
+| **Healer** | `Mending` | Every 15 seconds, heals up to three injured ordinary monsters within 15 units for 20% of their maximum health. |
+| **Shielded** | `Shielded` | Starts with three shield charges. Each charge completely negates one hit; the full set replenishes 25 seconds after depletion. |
+| **SpellBreaker** | `Breaking` | When it damages a player who is actively casting, interrupts the cast and deals extra fire damage based on the spell's mana use, capped at 250. |
+| **Stomper** | `Massive` | Successful player hits splash the same damage type with distance falloff to as many as five other players within 10 units. Splash is capped at 80% of the original hit. |
+| **Vampire** | `Vampiric` | Heals itself for 100% of successful damage dealt to a player, up to its normal maximum health. |
+| **Rogue** | `Rakish` | Attacks from behind have a 25% chance, with a 10-second cooldown, to interrupt the player's current attack or cast and drain 20 stamina. It never unequips, moves, or drops player items. |
+| **Horde** | `Swarm of N/M` | Represents an initial swarm of three to six members through one shared-health creature. Each extra member adds 50% maximum health; each additional living member adds 15% outgoing damage, capped at 3x. The displayed living count falls with health, without creating extra corpses or loot. |
+| **Puppeteer** | `Conniving` | Creates up to three temporary illusions, one every 15 seconds, within 3 units. Copies last 45 seconds, cannot attack or be attacked, grant no XP or loot, and are cleaned up on timeout, owner death, or mod unload. |
+| **Boss** | `Tyrannical` | Becomes a larger encounter creature: 1.75x scale, 1.50x attributes, 2x vitals, 1.25x outgoing damage, and 5x XP. It rotates a damage weakness every 15 seconds (1.50x matching damage and 0.50x other damage) and periodically casts one bounded special spell. Its attacks can be unevadable and its spells unresistable. |
+| **Tank** | `Guardian` | Intercepts direct player damage aimed at another monster within 10 units and takes 50% of that damage itself while cancelling the protected hit. It cannot redirect hits already aimed at itself, preventing recursion. |
+| **Stunner** | `Debilitating` | Every 20 seconds, when its player target is within 8 units, interrupts attacks and spells and freezes the player in a kneeling motion for 2 seconds. It restores the player's previous frozen state; overlapping stuns safely extend the duration. |
+
+When variants stack, their mechanics run together rather than merely adding extra name prefixes. For example, a Tyrannical Swarm combines Boss and Horde health and damage scaling, while on-hit traits such as Drainer, Vampire, and Stomper can all trigger from the same successful attack.
+
 - [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip)
 - [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip.sha256)
 - [Complete installation, variant, stacking, settings, command, and compatibility guide](docs/AQUIFIR_CREATURE_VARIANTS.md)
