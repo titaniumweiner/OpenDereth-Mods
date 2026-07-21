@@ -6,6 +6,7 @@ The projects target OpenDereth's pinned ACE.Server 1.1 / .NET 10 runtime and ref
 
 | Directory | Package ID | Origin |
 |---|---|---|
+| `AquafirCreatureVariants` | `opendereth.aquafir-creature-variants` | Aquafir creature concepts, reviewed, completed, and made stackable for OpenDereth |
 | `CriticalOverride` | `aquafir.critical-override` | Aquafir sample, ported and tested for OpenDereth |
 | `ExpandedCastOnStrike` | `titaniumweiner.ace-unique-weenies-proc` | ACEUniqueWeenies behavior, packaged for OpenDereth |
 | `HelloCommand` | `aquafir.hello-command` | Aquafir developer sample, ported for OpenDereth |

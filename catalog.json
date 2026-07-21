@@ -3,8 +3,8 @@
   "formatVersion": 1,
   "name": "OpenDereth Mods",
   "repository": "https://github.com/titaniumweiner/OpenDereth-Mods",
-  "releaseTag": "v1.0.0",
-  "generatedAt": "2026-07-19",
+  "releaseTag": "v1.1.0",
+  "generatedAt": "2026-07-21",
   "target": {
     "product": "OpenDereth",
     "aceVersion": "ACE.Server 1.1",
@@ -12,6 +12,23 @@
     "packageFormat": 1
   },
   "mods": [
+    {
+      "id": "opendereth.aquafir-creature-variants",
+      "name": "Aquafir Creature Variants",
+      "version": "1.2.0-sp1",
+      "author": "Aquafir; OpenDereth reviewed port",
+      "description": "Randomly gives eligible ordinary monsters one or more of 18 configurable, stackable runtime combat variants with bounded mechanics and cleanup-safe temporary effects.",
+      "availability": "preview",
+      "dataImpact": "settingsOnly",
+      "removalPolicy": "safe",
+      "safetyNotice": "Safe to disable after stopping and restarting the server. The 50% assignment and stacking defaults are intentionally high for testing.",
+      "dependencies": [],
+      "conflicts": ["aquafir.expansion"],
+      "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/AquafirCreatureVariants",
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip",
+      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip.sha256",
+      "sha256": "CB76F1BAE5A5A2A87E8579E4EFDEB88745B4984EC466186FA4D666CF6095E54F"
+    },
     {
       "id": "opendereth.universal-loot-luck",
       "name": "All-Tier Salvage & Loot Luck",
