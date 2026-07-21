@@ -20,6 +20,7 @@ See [Installing and removing mods](docs/INSTALLING.md) for the complete safety a
 
 | Mod | What it does | Saved-data impact | Status |
 |---|---|---:|---|
+| [Aquafir Creature Variants](#aquafir-creature-variants) | Randomly gives ordinary monsters one or more of 18 stackable combat variants. | Settings only | Preview |
 | [All-Tier Salvage & Loot Luck](#all-tier-salvage--loot-luck) | Makes every equipment-loot tier eligible for all category-compatible ACE materials, with optional luck settings. | Changes remain on generated items | Preview |
 | [Unlimited Stat Augmentation Gems](#unlimited-stat-augmentation-gems) | Removes the shared limit on six innate-stat augmentation gems while keeping each stat capped at 100. | Character progression | Preview |
 | [Unlimited Skill Specializations](#unlimited-skill-specializations) | Removes the 70-credit total specialization ceiling while preserving normal costs and prerequisites. | Character progression | Preview |
@@ -28,6 +29,28 @@ See [Installing and removing mods](docs/INSTALLING.md) for the complete safety a
 | [Society Tailoring](#society-tailoring) | Allows Society armor to participate in tailoring. | Changes remain on tailored items | Preview |
 | [CustomClothingBase](#customclothingbase) | Loads custom ClothingTable definitions from JSON without requiring client DAT edits. | Saved items may depend on it | Preview |
 | [Hello Command](#hello-command) | Adds `/hello` and `/bye` as a small server-mod development example. | None | Preview / developer sample |
+
+## Aquafir Creature Variants
+
+**Original concepts:** [aquafir](https://github.com/aquafir/ACE.BaseMod/tree/41c2728fc0e4fb96d06b4e7949ca369ed5be9621/Samples/Expansion/Creatures)<br>
+**OpenDereth review and port:** OpenDereth<br>
+**Package:** `opendereth.aquafir-creature-variants-1.2.0-sp1.zip`
+
+Randomly gives eligible ordinary monsters one or more of 18 runtime combat variants: Accurate, Berserker, Comboer, Drainer, Duelist, Evader, Exploder, Healer, Shielded, SpellBreaker, Stomper, Vampire, Rogue, Horde, Puppeteer, Boss, Tank, and Stunner.
+
+The default testing profile gives 50% of eligible creatures at least one variant. Stacking is enabled, with a 50% roll for each additional distinct variant and a maximum of three. The assignment chance, stacking behavior, level and WCID filters, per-variant weights, and every mechanical value can be edited in `Settings.json`. Boss, Puppeteer, and Horde use lower random weights than ordinary variants.
+
+This is a runtime-only mod. It does not replace creature weenies or rewrite character, world, or client DAT data. Stacked variants execute together, including multiplicative Boss/Horde damage and health scaling, combined Berserker/Boss attributes, multiple on-hit effects, and independent timed abilities. Creature names display all assigned prefixes.
+
+- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip)
+- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip.sha256)
+- [Complete installation, variant, stacking, settings, command, and compatibility guide](docs/AQUIFIR_CREATURE_VARIANTS.md)
+- [Reviewed port source](src/AquafirCreatureVariants)
+
+**Removal:** Safe after stopping and restarting the server. All variant state, temporary illusions, stuns, and name prefixes are runtime-only. Conflicts with Aquafir's broad `Expansion` creature framework.
+
+> [!WARNING]
+> This package is a Preview. The intentionally high 50% assignment/stacking defaults are meant for testing, and every stacked combination has not been thoroughly tested in game. Back up before use and reduce the probabilities for a long-term world.
 
 ## All-Tier Salvage & Loot Luck
 
