@@ -12,9 +12,10 @@
     "generatedAt": { "type": "string", "format": "date" },
     "target": {
       "type": "object",
-      "required": ["product", "aceVersion", "framework", "packageFormat"],
+      "required": ["product", "minimumLauncherVersion", "aceVersion", "framework", "packageFormat"],
       "properties": {
         "product": { "type": "string" },
+        "minimumLauncherVersion": { "type": "string", "minLength": 1 },
         "aceVersion": { "type": "string" },
         "framework": { "type": "string" },
         "packageFormat": { "type": "integer", "minimum": 1 }
@@ -25,7 +26,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "version", "author", "description", "availability", "dataImpact", "removalPolicy", "safetyNotice", "dependencies", "conflicts", "sourceUrl", "downloadUrl", "checksumUrl", "sha256"],
+        "required": ["id", "name", "version", "author", "description", "availability", "dataImpact", "removalPolicy", "safetyNotice", "dependencies", "conflicts", "sourceUrl", "downloadUrl", "sha256"],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]+$" },
           "name": { "type": "string", "minLength": 1 },

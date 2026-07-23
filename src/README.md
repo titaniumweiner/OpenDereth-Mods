@@ -10,6 +10,7 @@ The projects target OpenDereth's pinned ACE.Server 1.1 / .NET 10 runtime and ref
 | `CriticalOverride` | `aquafir.critical-override` | Aquafir sample, ported and tested for OpenDereth |
 | `ExpandedCastOnStrike` | `titaniumweiner.ace-unique-weenies-proc` | ACEUniqueWeenies behavior, packaged for OpenDereth |
 | `HelloCommand` | `aquafir.hello-command` | Aquafir developer sample, ported for OpenDereth |
+| `MultiImbue` | `opendereth.three-imbues` | OpenDereth |
 | `SocietyTailoring` | `aquafir.society-tailoring` | Aquafir sample, ported and tested for OpenDereth |
 | `UnlimitedStatAugmentation` | `opendereth.unlimited-stat-augmentation-gems` | OpenDereth |
 | `UnlimitedSkillSpecializations` | `opendereth.unlimited-skill-specializations` | OpenDereth |

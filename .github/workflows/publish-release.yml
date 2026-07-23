@@ -15,20 +15,12 @@ jobs:
       - name: Check out tagged catalog
         uses: actions/checkout@v7
 
-      - name: Verify every release checksum
-        shell: bash
+      - name: Verify every embedded package manifest
+        shell: pwsh
         run: |
-          set -euo pipefail
-          shopt -s nullglob
-          archives=(release-assets/*.zip)
-          test "${#archives[@]}" -gt 0
-          for archive in "${archives[@]}"; do
-            checksum="${archive}.sha256"
-            test -f "${checksum}"
-            expected="$(tr -d '\r\n ' < "${checksum}")"
-            actual="$(sha256sum "${archive}" | cut -d' ' -f1)"
-            test "${actual^^}" = "${expected^^}"
-          done
+          $archives = @(Get-ChildItem -LiteralPath release-assets -File -Filter *.zip)
+          if ($archives.Count -eq 0) { throw "No release packages were staged." }
+          ./tools/verify-package.ps1 -PackagePath $archives.FullName
 
       - name: Publish GitHub release assets
         env:
@@ -37,6 +29,5 @@ jobs:
         run: |
           gh release create "${GITHUB_REF_NAME}" \
             release-assets/*.zip \
-            release-assets/*.zip.sha256 \
             --title "OpenDereth Mods ${GITHUB_REF_NAME}" \
             --notes-file RELEASE_NOTES.md

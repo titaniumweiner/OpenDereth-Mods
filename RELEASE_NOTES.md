@@ -1,3 +1,28 @@
+# OpenDereth Mods v1.2.0
+
+This release adds **Three Imbues 1.0.0-sp1** and migrates the complete public catalog to OpenDereth's single-file package format 2.
+
+Every release ZIP now embeds a SHA-256 hash for every payload file. The updated launcher verifies the complete manifest before installation, so players download and import only one ZIP. Legacy format-1 packages remain supported when their external `.zip.sha256` file is present.
+
+**OpenDereth v0.2.0-preview.11 or newer is required to import these format-2 packages.** Older launcher releases understand only the legacy sidecar format.
+
+- Supports combinations such as Armor Rending, Critical Strike, and Crippling Blow on one eligible weapon.
+- Preserves ACE's normal item/material eligibility, ten-tinker limit, skill and workmanship calculations, success chance, salvage consumption, and failure destruction.
+- Rejects duplicate effects and enforces a hard maximum of three.
+- Stores effects in ACE's persistent `ImbuedEffect`, `ImbuedEffect2`, and `ImbuedEffect3` properties.
+- Makes weapon and equipped-defense calculations read the combined ACE imbue slots.
+- Includes a setting that may lower the limit to one or two but cannot raise it above the tested cap.
+
+The packages target OpenDereth's pinned ACE.Server 1.1 / .NET 10 runtime. The full OpenDereth suite passes 101/101 tests, including single-file installation, legacy-package compatibility, altered-file rejection, unlisted-file rejection, archive safety, mod behavior, and removal paths.
+
+## Install
+
+Download the desired ZIP, stop the game and local server, then use **OpenDereth → Server Mods → Import a Mod ZIP...**. No separate checksum file is needed for v1.2.0 packages.
+
+Back up `%LOCALAPPDATA%\OpenDereth` first. Do not permanently remove the mod while characters own multi-imbued items; secondary effects stay saved but stock ACE does not activate them.
+
+---
+
 # OpenDereth Mods v1.1.0
 
 This release adds **Aquafir Creature Variants 1.2.0-sp1**, a reviewed runtime-only port of Aquafir's experimental creature concepts.

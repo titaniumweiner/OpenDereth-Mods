@@ -9,7 +9,7 @@ The port does not replace creature weenies or write variant state to the world o
 
 ## Installation
 
-1. Download `opendereth.aquafir-creature-variants-1.2.0-sp1.zip` and its matching `.zip.sha256` file from the OpenDereth-Mods release.
+1. Download the single `opendereth.aquafir-creature-variants-1.2.0-sp1.zip` file from the OpenDereth-Mods v1.2.0 release.
 2. Keep both files together without renaming them.
 3. Stop the Asheron's Call client and local ACE server.
 4. Open **OpenDereth → Server Mods → Import a Mod ZIP...** and select the ZIP.

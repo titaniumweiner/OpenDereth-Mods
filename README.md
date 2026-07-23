@@ -5,14 +5,15 @@ OpenDereth Mods is the public mod library for [OpenDereth](https://github.com/ti
 This repository keeps mod releases independent from launcher releases. Players can download only the changes they want, while authors can document, test, and update their work without requiring a new OpenDereth build.
 
 > [!IMPORTANT]
-> These packages target **OpenDereth / ACE.Server 1.1 on .NET 10**. Most are marked **Preview** because they build and pass automated compatibility tests but have not been thoroughly tested across every in-game situation. Stop the game and server, and back up `%LOCALAPPDATA%\OpenDereth` before testing progression or saved-item changes.
+> These format-2 packages require **OpenDereth v0.2.0-preview.11 or newer** and target ACE.Server 1.1 on .NET 10. Most are marked **Preview** because they build and pass automated compatibility tests but have not been thoroughly tested across every in-game situation. Stop the game and server, and back up `%LOCALAPPDATA%\OpenDereth` before testing progression or saved-item changes.
 
 ## Installing a mod
 
-1. Download both the mod's `.zip` and matching `.zip.sha256` file from the [latest release](https://github.com/titaniumweiner/OpenDereth-Mods/releases/latest).
-2. Keep the two files together without renaming either one.
-3. Close the Asheron's Call client and stop the local server.
-4. In OpenDereth, open **Server Mods**, choose **Import a Mod ZIP...**, and select the ZIP.
+1. Download the mod's `.zip` from the [latest release](https://github.com/titaniumweiner/OpenDereth-Mods/releases/latest).
+2. Close the Asheron's Call client and stop the local server.
+3. In OpenDereth, open **Server Mods**, choose **Import a Mod ZIP...**, and select the ZIP.
+
+Current format-2 packages contain an embedded SHA-256 hash for every payload file, so no separate checksum download is needed. OpenDereth verifies the complete file manifest before installation.
 
 See [Installing and removing mods](docs/INSTALLING.md) for the complete safety and recovery guide.
 
@@ -22,6 +23,7 @@ See [Installing and removing mods](docs/INSTALLING.md) for the complete safety a
 |---|---|---:|---|
 | [Aquafir Creature Variants](#aquafir-creature-variants) | Randomly gives ordinary monsters one or more of 18 stackable combat variants. | Settings only | Preview |
 | [All-Tier Salvage & Loot Luck](#all-tier-salvage--loot-luck) | Makes every equipment-loot tier eligible for all category-compatible ACE materials, with optional luck settings. | Changes remain on generated items | Preview |
+| [Three Imbues](#three-imbues) | Allows compatible items to receive as many as three distinct standard salvage imbues. | Saved item properties | Preview |
 | [Unlimited Stat Augmentation Gems](#unlimited-stat-augmentation-gems) | Removes the shared limit on six innate-stat augmentation gems while keeping each stat capped at 100. | Character progression | Preview |
 | [Unlimited Skill Specializations](#unlimited-skill-specializations) | Removes the 70-credit total specialization ceiling while preserving normal costs and prerequisites. | Character progression | Preview |
 | [Expanded Cast on Strike](#expanded-cast-on-strike) | Allows compatible non-Aetheria equipped items to use cast-on-strike procs. | Runtime behavior | Preview |
@@ -69,8 +71,7 @@ These are the shipped testing defaults. Every chance, timer, range, multiplier, 
 
 When variants stack, their mechanics run together rather than merely adding extra name prefixes. For example, a Tyrannical Swarm combines Boss and Horde health and damage scaling, while on-hit traits such as Drainer, Vampire, and Stomper can all trigger from the same successful attack.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip)
 - [Complete installation, variant, stacking, settings, command, and compatibility guide](docs/AQUIFIR_CREATURE_VARIANTS.md)
 - [Reviewed port source](src/AquafirCreatureVariants)
 
@@ -90,11 +91,29 @@ It does **not** put loose salvage bags on corpses or assign arbitrary materials 
 
 The default configuration changes only material availability. Optional, independent settings can add a bounded loot-quality bias or multiply generated-loot category chances, trophy rates, and the initial rare-eligibility roll. All optional luck controls default to stock ACE behavior.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.universal-loot-luck-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.universal-loot-luck-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.universal-loot-luck-1.0.0-sp1.zip)
 - [Source and full settings reference](src/UniversalLootLuck)
 
 **Removal:** Safe to disable after restart, but materials and quality already generated on saved items remain. Conflicts with Aquafir's broad `Expansion` loot framework.
+
+## Three Imbues
+
+**Author:** OpenDereth<br>
+**Package:** `opendereth.three-imbues-1.0.0-sp1.zip`
+
+Allows a compatible item to receive as many as three distinct standard salvage imbues. A melee weapon can, for example, carry Armor Rending, Critical Strike, and Crippling Blow together when it passes the normal ACE requirements for each material.
+
+The mod keeps ACE's item eligibility, ten-tinker limit, workmanship, tinkering skill, success chance, salvage consumption, and failure-destruction behavior. It rejects duplicate effects and stores each successful effect in a separate persistent ACE imbue slot. Weapon and equipped-defense calculations read the combined slots while the mod is enabled. `Settings.json` can lower the limit to one or two, but cannot raise it above three.
+
+The classic client has only one imbue icon-underlay field, so the inventory icon may show only the latest successful imbue even though all three stored effects are active.
+
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.three-imbues-1.0.0-sp1.zip)
+- [Source and complete behavior guide](src/MultiImbue)
+
+**Removal:** Back up first and do not permanently remove the mod while characters own multi-imbued items. Secondary effects remain saved, but stock ACE combat ignores them until the mod is enabled again. Conflicts with Aquafir's broader `Tinkering` overhaul.
+
+> [!WARNING]
+> This package is a Preview. Its rule, storage, combat-read, cleanup, and package paths have automated coverage, but the complete in-game matrix of items, foolproof salvage, appraisal display, failed attempts, and other tinkering mods has not yet been thoroughly tested.
 
 ## Unlimited Stat Augmentation Gems
 
@@ -103,8 +122,7 @@ The default configuration changes only material availability. Optional, independ
 
 Removes the normal shared limit of ten gems across Strength, Endurance, Coordination, Quickness, Focus, and Self. Each innate stat remains hard-capped at 100. Gems retain their normal experience cost and consumption behavior, and all other augmentation limits remain unchanged.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip)
 - [Source](src/UnlimitedStatAugmentation)
 
 **Removal:** Turning it off restores the normal shared limit after restart. Stat increases already earned remain. Conflicts with Aquafir's broader `QualityOfLife` augmentation-limit feature.
@@ -116,8 +134,7 @@ Removes the normal shared limit of ten gems across Strength, Endurance, Coordina
 
 Removes ACE's ceiling of 70 total credits invested in specialized skills. It does not grant credits: a skill must still be trained, the character must have its normal specialization cost available, and that cost is deducted normally. ACE's administrator verifier is updated so legitimate over-cap characters are not reset.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip)
 - [Source](src/UnlimitedSkillSpecializations)
 
 **Removal:** Existing over-cap specializations remain until lowered normally. Conflicts with Aquafir's broader `QualityOfLife` specialization changes.
@@ -130,8 +147,7 @@ Removes ACE's ceiling of 70 total credits invested in specialized skills. It doe
 
 Stock ACE runs its equipped-item proc pass only for Aetheria. This mod also accepts a non-Aetheria equipped item when it has a proc, is not cloak weave proc type `1`, and its self-target flag matches the current attack. It is intended for compatible custom jewelry, armor, and weapons such as the ACEUniqueWeenies content.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip)
 - [Port source](src/ExpandedCastOnStrike)
 
 **Removal:** Safe for the database. Custom items remain, but their non-Aetheria equipped procs stop working after restart.
@@ -144,8 +160,7 @@ Stock ACE runs its equipped-item proc pass only for Aetheria. This mod also acce
 
 Provides two simple settings for physical and magic critical-hit chances against non-player creatures. Player-versus-player calculations remain unchanged.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.critical-override-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.critical-override-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/aquafir.critical-override-1.0.0-sp1.zip)
 - [Port source](src/CriticalOverride)
 
 **Removal:** Safe after restart. Earlier combat results are not recalculated.
@@ -158,8 +173,7 @@ Provides two simple settings for physical and magic critical-hit chances against
 
 Allows Society armor to be used in ACE's tailoring workflow while preserving inventory and retained-item checks.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.society-tailoring-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.society-tailoring-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/aquafir.society-tailoring-1.0.0-sp1.zip)
 - [Port source](src/SocietyTailoring)
 
 **Removal:** Turning it off stops new Society tailoring, but completed tailoring changes remain on items.
@@ -171,8 +185,7 @@ Allows Society armor to be used in ACE's tailoring workflow while preserving inv
 
 Loads custom server-side ClothingTable entries from JSON, enabling new clothing colors and appearance combinations without client DAT updates. The package contains OptimShi's unmodified official v1.11 binaries plus OpenDereth metadata and import structure.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/optimshi.custom-clothing-base-1.11-upstream.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/optimshi.custom-clothing-base-1.11-upstream.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/optimshi.custom-clothing-base-1.11-upstream.zip)
 - [Original source and documentation](https://github.com/OptimShi/CustomClothingBase)
 
 **Removal:** Do not remove it while saved items or world content refer to custom ClothingBase IDs.
@@ -188,8 +201,7 @@ Loads custom server-side ClothingTable entries from JSON, enabling new clothing 
 
 A deliberately small developer example that registers `/hello` and `/bye`. It is useful as a working reference for OpenDereth server-mod authors and adds little to ordinary gameplay.
 
-- [Download ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.hello-command-1.0.0-sp1.zip)
-- [Download checksum](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.hello-command-1.0.0-sp1.zip.sha256)
+- [Download self-verifying ZIP](https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/aquafir.hello-command-1.0.0-sp1.zip)
 - [Port source](src/HelloCommand)
 
 **Removal:** Safe after restart.
@@ -204,7 +216,7 @@ The schema is documented in [`catalog.schema.json`](catalog.schema.json).
 
 Community contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and [Creating an OpenDereth mod](docs/CREATING_MODS.md) before submitting a pull request.
 
-Every submitted package must include source or an authoritative source link, clear permission/license information, an OpenDereth manifest, saved-game and removal behavior, compatibility metadata, tests appropriate to its risk, and a SHA-256 checksum.
+Every submitted package must include source or an authoritative source link, clear permission/license information, an OpenDereth manifest, saved-game and removal behavior, compatibility metadata, tests appropriate to its risk, and an embedded SHA-256 file manifest.
 
 ## Project relationship and trademarks
 

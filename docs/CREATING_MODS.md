@@ -14,7 +14,7 @@ author.mod-name-1.0.0.zip
     └── Settings.json        optional
 ```
 
-The ZIP must be accompanied by `author.mod-name-1.0.0.zip.sha256`.
+The release ZIP must use package format 2 and include an `integrity` object in `ace-mod.json` with a SHA-256 hash for every file under `mod/`. It is distributed as one ZIP; no sidecar file is required.
 
 ## Package manifest
 

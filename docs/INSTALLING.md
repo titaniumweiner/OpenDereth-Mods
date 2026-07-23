@@ -9,9 +9,9 @@
 
 ## Importing a package
 
-Download both the `.zip` and its matching `.zip.sha256` file from the same release. Keep them in the same directory without renaming either one.
+Download the mod's `.zip` from the current release. Format-2 packages are complete single files; no separate checksum download is required.
 
-Open OpenDereth, choose **Server Mods**, select **Import a Mod ZIP...**, and choose the ZIP. The launcher validates the checksum, identity, archive paths, size limits, manifest, metadata, and expected entry assembly before moving the complete mod into ACE's private Mods directory.
+Open OpenDereth, choose **Server Mods**, select **Import a Mod ZIP...**, and choose the ZIP. The launcher validates every embedded SHA-256 file hash, identity, archive paths, size limits, manifest, metadata, and expected entry assembly before moving the complete mod into ACE's private Mods directory. Older format-1 packages remain compatible when their matching `.zip.sha256` file is beside the ZIP.
 
 Restart the local server after installation or any settings change.
 
@@ -29,10 +29,10 @@ If startup fails after testing a mod, stop OpenDereth, restore the full `%LOCALA
 
 ## Verifying manually
 
-The `.zip.sha256` file contains the expected SHA-256 hash. Advanced users can compare it with:
+The machine-readable catalog records the SHA-256 of each complete release ZIP. Advanced users can compare a download with the catalog value using:
 
 ```powershell
 Get-FileHash .\author.mod-name-version.zip -Algorithm SHA256
 ```
 
-The reported hash must match the checksum file exactly.
+The reported hash must match that mod's `sha256` value in [`catalog.json`](../catalog.json). The launcher also verifies the embedded hashes of every payload file during import.
