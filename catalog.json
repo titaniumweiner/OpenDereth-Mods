@@ -3,13 +3,14 @@
   "formatVersion": 1,
   "name": "OpenDereth Mods",
   "repository": "https://github.com/titaniumweiner/OpenDereth-Mods",
-  "releaseTag": "v1.1.0",
-  "generatedAt": "2026-07-21",
+  "releaseTag": "v1.2.0",
+  "generatedAt": "2026-07-22",
   "target": {
     "product": "OpenDereth",
+    "minimumLauncherVersion": "0.2.0-preview.11",
     "aceVersion": "ACE.Server 1.1",
     "framework": ".NET 10",
-    "packageFormat": 1
+    "packageFormat": 2
   },
   "mods": [
     {
@@ -25,9 +26,8 @@
       "dependencies": [],
       "conflicts": ["aquafir.expansion"],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/AquafirCreatureVariants",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.1.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip.sha256",
-      "sha256": "CB76F1BAE5A5A2A87E8579E4EFDEB88745B4984EC466186FA4D666CF6095E54F"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.aquafir-creature-variants-1.2.0-sp1.zip",
+      "sha256": "4B72DC80EE4166EC4D5AB175FC3CA4E277E3FFD9A1EC85B7B441D2B91B6C15CA"
     },
     {
       "id": "opendereth.universal-loot-luck",
@@ -42,9 +42,8 @@
       "dependencies": [],
       "conflicts": ["aquafir.expansion"],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/UniversalLootLuck",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.universal-loot-luck-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.universal-loot-luck-1.0.0-sp1.zip.sha256",
-      "sha256": "F6C53C976CC3186E2994112D99B818562751C3610CAB56082A160F8D019AE171"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.universal-loot-luck-1.0.0-sp1.zip",
+      "sha256": "60748FFFF172000441F7949AA4FB7A0C27475128732DF5A8B2D8ABAA8EAFB631"
     },
     {
       "id": "opendereth.unlimited-stat-augmentation-gems",
@@ -59,9 +58,24 @@
       "dependencies": [],
       "conflicts": ["aquafir.quality-of-life"],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/UnlimitedStatAugmentation",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip.sha256",
-      "sha256": "F8C6F1F490032C89C5C2623445CBCE6B0BAB7E7308C7EE139E92CE04087411E9"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.unlimited-stat-augmentation-gems-1.0.0-sp1.zip",
+      "sha256": "F387B8E2DF2287E34818257F8B04C7B61786FACE8B7FFAD10C80D05558E81767"
+    },
+    {
+      "id": "opendereth.three-imbues",
+      "name": "Three Imbues",
+      "version": "1.0.0-sp1",
+      "author": "OpenDereth",
+      "description": "Allows eligible items to receive as many as three distinct standard salvage imbues while preserving ACE's normal eligibility, tinkering-limit, skill, success-chance, consumption, and failure rules.",
+      "availability": "preview",
+      "dataImpact": "characterData",
+      "removalPolicy": "doNotRemove",
+      "safetyNotice": "Back up first. Do not permanently remove this mod while characters own multi-imbued items; secondary effects remain saved but stock ACE does not activate them.",
+      "dependencies": [],
+      "conflicts": ["aquafir.tinkering"],
+      "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/MultiImbue",
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.three-imbues-1.0.0-sp1.zip",
+      "sha256": "10408A742A65DE690762F1F38B0A1C732EE981CE80D9D689BD6384B40A9B47FE"
     },
     {
       "id": "opendereth.unlimited-skill-specializations",
@@ -76,9 +90,8 @@
       "dependencies": [],
       "conflicts": ["aquafir.quality-of-life"],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/UnlimitedSkillSpecializations",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip.sha256",
-      "sha256": "C6EB5F89CDF18D717F8579FE105816ED7A6C5FB659CEA708BC5C78AB864E18EA"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/opendereth.unlimited-skill-specializations-1.0.0-sp1.zip",
+      "sha256": "5513AD3F97A4B5333294F5AF9EDED2C9535A300C98DFEA296CCA1B645844D60C"
     },
     {
       "id": "titaniumweiner.ace-unique-weenies-proc",
@@ -93,9 +106,8 @@
       "dependencies": [],
       "conflicts": [],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/ExpandedCastOnStrike",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip.sha256",
-      "sha256": "EB0FC15548406D033F113E32B906BAC424E5D480854D5B37A8C693FB62F057DC"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/titaniumweiner.ace-unique-weenies-proc-1.0.0-sp1.zip",
+      "sha256": "F809D219B7B76794F611BAD4CAD1F0D71349150A8573DFB009FCEAFD60D9C87F"
     },
     {
       "id": "aquafir.critical-override",
@@ -110,9 +122,8 @@
       "dependencies": [],
       "conflicts": [],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/CriticalOverride",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.critical-override-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.critical-override-1.0.0-sp1.zip.sha256",
-      "sha256": "4B8CD6E431E31DE20F5BE004D742C5ABD82F5E181B0F4A644A4D4305B08E69E0"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/aquafir.critical-override-1.0.0-sp1.zip",
+      "sha256": "E231BE795B397545BF1EA71A032DBD5DD277731EC4B695750A495C28BE810661"
     },
     {
       "id": "aquafir.society-tailoring",
@@ -127,9 +138,8 @@
       "dependencies": [],
       "conflicts": [],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/SocietyTailoring",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.society-tailoring-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.society-tailoring-1.0.0-sp1.zip.sha256",
-      "sha256": "5F467F714A3E90B18FBF1586F18BE61E4CCDA99EF05355C45EB6F4CC23FB7DFC"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/aquafir.society-tailoring-1.0.0-sp1.zip",
+      "sha256": "19DC0B31CA9D9F113CFE6C94490AC25CA33CC59A7ED716E55A83D19E64C133E4"
     },
     {
       "id": "optimshi.custom-clothing-base",
@@ -144,9 +154,8 @@
       "dependencies": [],
       "conflicts": [],
       "sourceUrl": "https://github.com/OptimShi/CustomClothingBase",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/optimshi.custom-clothing-base-1.11-upstream.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/optimshi.custom-clothing-base-1.11-upstream.zip.sha256",
-      "sha256": "1911EE857CBF2C7CC0F27A045729634DBB269B9ACE1F72D2C11EC38AD4893931"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/optimshi.custom-clothing-base-1.11-upstream.zip",
+      "sha256": "972C7A4FB42620CB1EF79247E82E6E3E6873BC6468FFC811BAABF35A8287DE0A"
     },
     {
       "id": "aquafir.hello-command",
@@ -161,9 +170,8 @@
       "dependencies": [],
       "conflicts": [],
       "sourceUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/tree/main/src/HelloCommand",
-      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.hello-command-1.0.0-sp1.zip",
-      "checksumUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.0.0/aquafir.hello-command-1.0.0-sp1.zip.sha256",
-      "sha256": "1500AEC5E28CCBE8397D8A8EDCB5D27FAF5BDF220697E41B281C43A53CE6FEBC"
+      "downloadUrl": "https://github.com/titaniumweiner/OpenDereth-Mods/releases/download/v1.2.0/aquafir.hello-command-1.0.0-sp1.zip",
+      "sha256": "63A0C953291D020163D7476556E885682EE68B6368CF17EFF680874CA71C8C87"
     }
   ]
 }

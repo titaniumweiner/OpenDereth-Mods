@@ -19,7 +19,7 @@ A catalog submission must include:
 - saved-data impact and a truthful removal policy;
 - installation, configuration, and removal instructions;
 - tests appropriate to the code's risk;
-- a reproducible ZIP plus matching SHA-256 checksum.
+- a reproducible format-2 ZIP with an embedded SHA-256 hash for every payload file.
 
 Do not include copyrighted Asheron's Call client files, DAT files, passwords, database credentials, private Discord messages, personal filesystem paths, or third-party binaries without permission.
 
